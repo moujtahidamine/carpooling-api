@@ -1,6 +1,6 @@
 <?php
 
-use App\Http\Controllers\ProductController;
+use App\Http\Controllers\TrajetController;
 use App\Http\Controllers\AuthController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
@@ -19,15 +19,18 @@ use Illuminate\Support\Facades\Route;
 // Public routes
 Route::post('/register', [AuthController::class, 'register']);
 Route::post('/login', [AuthController::class, 'login']);
-Route::get('/products', [ProductController::class, 'index']);
-Route::get('/products/{id}', [ProductController::class, 'show']);
-Route::get('/products/search/{name}', [ProductController::class, 'search']);
+
+Route::get('/trajets', [TrajetController::class, 'index']);
+Route::get('/trajets/{id}', [TrajetController::class, 'show']);
+Route::get('/trajets/search/{name}', [TrajetController::class, 'search']);
+
+Route::post('/trajets', [TrajetController::class, 'store']);
 
 // Protected routes
 Route::group(['middleware' => ['auth:sanctum']], function () {
-    Route::post('/products', [ProductController::class, 'store']);
-    Route::put('/products/{id}', [ProductController::class, 'update']);
-    Route::delete('/products/{id}', [ProductController::class, 'destroy']);
+    
+    Route::put('/trajets/{id}', [TrajetController::class, 'update']);
+    Route::delete('/trajets/{id}', [TrajetController::class, 'destroy']);
     Route::post('/logout', [AuthController::class, 'logout']);
 });
 
