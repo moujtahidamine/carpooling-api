@@ -50,9 +50,6 @@ class User extends Authenticatable
         'email_verified_at' => 'datetime',
     ];
 
-    /**
-     * Get the car associated with the user.
-     */
     public function cars()
     {
         return $this->hasMany(Car::class);

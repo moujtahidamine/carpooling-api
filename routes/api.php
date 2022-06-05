@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\TrajetController;
 use App\Http\Controllers\AuthController;
+use App\Http\Controllers\CarController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 
@@ -25,6 +26,13 @@ Route::get('/trajets/{id}', [TrajetController::class, 'show']);
 Route::get('/trajets/search/{name}', [TrajetController::class, 'search']);
 
 Route::post('/trajets', [TrajetController::class, 'store']);
+
+
+Route::get('/cars', [CarController::class, 'index']);
+Route::get('/cars/{id}', [CarController::class, 'show']);
+Route::get('/cars/search/{marque}', [CarController::class, 'search']);
+
+Route::post('/cars', [CarController::class, 'store']);
 
 // Protected routes
 Route::group(['middleware' => ['auth:sanctum']], function () {

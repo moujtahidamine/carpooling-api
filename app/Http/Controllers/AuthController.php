@@ -52,7 +52,7 @@ class AuthController extends Controller
 
         $response = [
             'user' => $user,
-            // 'car' => $user->car,
+            'cars' => $user->cars,
             'token' => $token
         ];
 

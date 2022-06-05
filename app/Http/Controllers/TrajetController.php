@@ -25,11 +25,11 @@ class TrajetController extends Controller
      */
     public function store(Request $request)
     {
-        $request->validate([
-            'villeDepart' => 'required',
-            'villeArrive' => 'required',
-            'prix' => 'required'
-        ]);
+        // $request->validate([
+        //     'villeDepart' => 'required',
+        //     'villeArrive' => 'required',
+        //     'prix' => 'required'
+        // ]);
 
         return Trajet::create($request->all());
     }
