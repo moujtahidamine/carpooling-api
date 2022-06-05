@@ -34,6 +34,11 @@ class CarController extends Controller
         return Car::destroy($id);
     }
 
+    public function getByUserId($userId)
+    {
+        return Car::where('user_id', 'like', $userId)->get();
+    }
+
     public function search($matricule)
     {
         return Car::where('matricule', 'like', '%'.$matricule.'%')->get();

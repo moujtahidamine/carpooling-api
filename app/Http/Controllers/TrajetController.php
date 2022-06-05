@@ -42,7 +42,15 @@ class TrajetController extends Controller
      */
     public function show($id)
     {
-        return Trajet::find($id);
+        $trajet = Trajet::find($id);
+        
+        $response = [
+            'trajet' => $trajet,
+            'car' => $trajet->car,
+        ];
+
+        return response($response, 201);
+
     }
 
     /**

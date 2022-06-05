@@ -31,6 +31,7 @@ Route::post('/trajets', [TrajetController::class, 'store']);
 Route::get('/cars', [CarController::class, 'index']);
 Route::get('/cars/{id}', [CarController::class, 'show']);
 Route::get('/cars/search/{marque}', [CarController::class, 'search']);
+Route::get('/cars/user/{userId}', [CarController::class, 'getByUserId']);
 
 Route::post('/cars', [CarController::class, 'store']);
 

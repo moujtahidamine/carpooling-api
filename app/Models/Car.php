@@ -21,4 +21,9 @@ class Car extends Model
     {
         return $this->belongsTo(User::class);
     }
+
+    public function trajets()
+    {
+        return $this->hasMany(Trajet::class);
+    }
 }

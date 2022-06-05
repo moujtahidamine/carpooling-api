@@ -16,7 +16,8 @@ class Trajet extends Model
         'dateDepart',
         'nbPlace',
 
-        'user_id'
+        'user_id',
+        'car_id',
     ];
 
     public function users()
@@ -27,5 +28,10 @@ class Trajet extends Model
     public function conducteur()
     {
         return $this->belongsTo(User::class);
+    }
+
+    public function car()
+    {
+        return $this->belongsTo(Car::class);
     }
 }
