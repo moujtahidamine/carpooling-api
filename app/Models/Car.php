@@ -11,8 +11,14 @@ class Car extends Model
 
     protected $fillable = [
         'marque',
+        'user_id',
         'matricule',
         'nbPlace',
         'etatVoiture'
     ];
+
+    public function user()
+    {
+        return $this->belongsTo(User::class);
+    }
 }

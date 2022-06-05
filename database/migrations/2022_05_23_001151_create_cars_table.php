@@ -15,6 +15,12 @@ return new class extends Migration
     {
         Schema::create('cars', function (Blueprint $table) {
             $table->id();
+            $table->unsignedBigInteger('user_id');
+            $table->foreign('user_id')->references('id')->on('users');
+            $table->string("marque");
+            $table->string("matricule");
+            $table->string("nbPlace");
+            $table->string("etatVoiture");
             $table->timestamps();
         });
     }

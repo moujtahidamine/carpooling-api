@@ -50,11 +50,19 @@ class User extends Authenticatable
         'email_verified_at' => 'datetime',
     ];
 
-    /**
-     * Get the car associated with the user.
-     */
-    public function car()
+    public function cars()
     {
-        return $this->hasOne(Car::class);
+        return $this->hasMany(Car::class);
     }
+
+    public function demandes()
+    {
+        return $this->belongstoMany(Trajet::class);
+    }
+
+    public function trajets()
+    {
+        return $this->hasMany(Trajet::class);
+    }
+
 }
