@@ -13,18 +13,12 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create('trajets', function (Blueprint $table) {
+        Schema::create('user_trajet', function (Blueprint $table) {
             $table->id();
+            $table->foreignId('user_id');
+            $table->foreignId('trajet_id');
+            $table->string('acceptance')->nullable();
             $table->timestamps();
-
-            $table->string('villeDepart');
-            $table->string('villeArrive');
-            $table->string('dateDepart');
-            $table->integer('prix');
-            $table->integer('nbPlace');
-
-            $table->unsignedBigInteger('user_id');
-            $table->foreign('user_id')->references('id')->on('users');
         });
     }
 
@@ -35,6 +29,6 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('trajets');
+        Schema::dropIfExists('user_trajet');
     }
 };

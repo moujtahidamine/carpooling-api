@@ -14,6 +14,18 @@ class Trajet extends Model
         'villeArrive',
         'prix',
         'dateDepart',
-        'nbPlace'
+        'nbPlace',
+
+        'user_id'
     ];
+
+    public function users()
+    {
+        return $this->belongstoMany(User::class);
+    }
+
+    public function conducteur()
+    {
+        return $this->belongsTo(User::class);
+    }
 }
