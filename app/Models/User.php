@@ -53,8 +53,8 @@ class User extends Authenticatable
     /**
      * Get the car associated with the user.
      */
-    public function car()
+    public function cars()
     {
-        return $this->hasOne(Car::class);
+        return $this->hasMany(Car::class);
     }
 }
