@@ -24,22 +24,23 @@ Route::post('/login', [AuthController::class, 'login']);
 Route::get('/trajets', [TrajetController::class, 'index']);
 Route::get('/trajets/{id}', [TrajetController::class, 'show']);
 Route::get('/trajets/search/{name}', [TrajetController::class, 'search']);
-
 Route::post('/trajets', [TrajetController::class, 'store']);
+
+Route::put('/trajets/{id}', [TrajetController::class, 'update']);
+Route::delete('/trajets/{id}', [TrajetController::class, 'destroy']);
+
+Route::get('/user/{idUser}/trajet/{idTrajet}', [AuthController::class, 'inscrire']);
 
 
 Route::get('/cars', [CarController::class, 'index']);
 Route::get('/cars/{id}', [CarController::class, 'show']);
 Route::get('/cars/search/{marque}', [CarController::class, 'search']);
 Route::get('/cars/user/{userId}', [CarController::class, 'getByUserId']);
-
 Route::post('/cars', [CarController::class, 'store']);
 
 // Protected routes
 Route::group(['middleware' => ['auth:sanctum']], function () {
     
-    Route::put('/trajets/{id}', [TrajetController::class, 'update']);
-    Route::delete('/trajets/{id}', [TrajetController::class, 'destroy']);
     Route::post('/logout', [AuthController::class, 'logout']);
 });
 

@@ -27,7 +27,7 @@ class Trajet extends Model
 
     public function conducteur()
     {
-        return $this->belongsTo(User::class);
+        return $this->belongsTo(User::class)->withPivot('acceptance');
     }
 
     public function car()

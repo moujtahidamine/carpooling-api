@@ -57,7 +57,7 @@ class User extends Authenticatable
 
     public function demandes()
     {
-        return $this->belongstoMany(Trajet::class);
+        return $this->belongstoMany(Trajet::class)->withPivot('acceptance');
     }
 
     public function trajets()

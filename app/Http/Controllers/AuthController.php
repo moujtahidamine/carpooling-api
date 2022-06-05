@@ -3,6 +3,8 @@
 namespace App\Http\Controllers;
 
 use App\Models\User;
+use App\Models\Trajet;
+
 use Illuminate\Http\Request;
 use Illuminate\Http\Response;
 use Illuminate\Support\Facades\Hash;
@@ -65,5 +67,15 @@ class AuthController extends Controller
         return [
             'message' => 'Logged out'
         ];
+    }
+
+    public function inscrire($idUser, $idTrajet)
+    {
+        $trajet = Trajet::find($idTrajet);
+        $user = User::find($idUser);
+
+        $user->demandes()->attach($idTrajet, ['acceptance' => false]);
+
+        return $user;
     }
 }
