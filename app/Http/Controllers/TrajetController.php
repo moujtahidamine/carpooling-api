@@ -32,6 +32,7 @@ class TrajetController extends Controller
         $response = [
             'trajet' => $trajet,
             'car' => $trajet->car,
+            'demandes' => $trajet->users,
         ];
 
         return response($response, 201);

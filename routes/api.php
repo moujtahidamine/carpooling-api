@@ -30,7 +30,7 @@ Route::put('/trajets/{id}', [TrajetController::class, 'update']);
 Route::delete('/trajets/{id}', [TrajetController::class, 'destroy']);
 
 Route::get('/user/{idUser}/trajet/{idTrajet}', [AuthController::class, 'inscrire']);
-
+Route::get('/user/{idUser}/trajet/{idTrajet}/accept', [AuthController::class, 'accepterDemande']);
 
 Route::get('/cars', [CarController::class, 'index']);
 Route::get('/cars/{id}', [CarController::class, 'show']);

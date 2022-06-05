@@ -78,4 +78,16 @@ class AuthController extends Controller
 
         return $user;
     }
+
+    public function accepterDemande($idUser, $idTrajet)
+    {
+        $trajet = Trajet::find($idTrajet);
+        $user = User::find($idUser);
+
+        $d = $user->demandes()->
+
+        $user->demandes()->updateExistingPivot($idTrajet, ['acceptance' => true]);
+
+        return $user;
+    }
 }
