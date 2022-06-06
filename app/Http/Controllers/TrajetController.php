@@ -11,7 +11,8 @@ class TrajetController extends Controller
 {
     public function index()
     {
-        return Trajet::all();
+        return Trajet::with(['car', 'conducteur', 'users'])->get();
+
     }
 
     public function store(Request $request)
@@ -22,7 +23,8 @@ class TrajetController extends Controller
         //     'prix' => 'required'
         // ]);
 
-        return Trajet::create($request->all());
+        $trajets = Trajet::create($request->all());
+        return response()->json($trajets, 200); 
     }
 
     public function show($id)

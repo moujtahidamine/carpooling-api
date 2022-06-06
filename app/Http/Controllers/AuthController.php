@@ -89,4 +89,13 @@ class AuthController extends Controller
 
         return $user;
     }
+
+    public function show($id)
+    {
+        $user = User::find($id);
+
+
+        return response($user, 201);
+
+    }
 }

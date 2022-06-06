@@ -22,7 +22,7 @@ class Trajet extends Model
 
     public function users()
     {
-        return $this->belongstoMany(User::class)->withPivot('acceptance');
+        return $this->belongstoMany(User::class, 'user_trajet')->withPivot('acceptance');
     }
 
     public function conducteur()
